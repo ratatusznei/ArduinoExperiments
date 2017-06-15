@@ -8,6 +8,6 @@ void setup () {
 
 void loop () {
     //Escreve no pino do led um valor proporcional
-    //   a tensao no pino central do potenciometro
+    //   a tensão no pino central do potenciometro
     analogWrite(LEDPIN, analogRead(POTPIN)/4);
 }

@@ -82,7 +82,7 @@ void printRGB(float r, float g, float b) {
 }
 
 void changeSpeed () {
-    //Set speed in interval [0, 9]
+    //Set speed,  0 <= speed <= 9
     if (Serial.available()) {
         speed = Serial.read() - '0';
     }

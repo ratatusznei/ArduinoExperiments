@@ -14,7 +14,7 @@ const RES = 10e3;
 
 board.on('ready', function () {
     //Debug
-    console.log('Olá, Arduino');
+    console.log('Olá, Arduino!');
 
     //Inicializa o led e o sensor
     led = new five.Led(LEDPIN);
@@ -45,5 +45,5 @@ board.on('ready', function () {
 board.on('exit', function () {
     led.off();
     //Debug
-    console.log("Tchau Arduino");
+    console.log("Tchau Arduino!");
 });
