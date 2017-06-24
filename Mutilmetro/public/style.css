@@ -1,60 +1,84 @@
 body {
+	/* Cor de fundo cinza escuro */
 	background-color: #0a0a0a;
-}
 
-.menu {
-	border: auto;
-    font-family: Arial;
-    text-align: center;
+	/* Fonte arial com o texto alinhado no centro */
+	font-family: Arial;
+	text-align: center;
 }
 
 /*
-	Botão seletor de unidade: V, R ou I;
+	Botões seletores de unidade: V, R ou I;
 */
 .unit-btn {
+	/* Cor de fundo cinza e fonte preta com 24px */
     background-color: #ccc;
     color: black;
-    padding: 16px;
     font-size: 24px;
-    border: none;
+
+    /* Espacamento entre a borda e o texto */
+    padding: 16px;
+
+    /* Borda redonda */
     border-radius: 8px;
+
+    /* Quando o cursor estiver sobre o botão, ele se torna um ponteiro */
     cursor: pointer;
+
+    /* 
+    	Os botões serão renderizados um do lado do outro
+    	com uma largura de 20% da janela do navegador
+    */
     display: inline-block;
     width: 20%;
-    text-align: center;
 }
 
 .unit-btn:hover {
+	/* Quando o mouse estiver sobre, a cor de fundo muda para um tom mais escuro */
 	background-color: #888;
 }
 
 /*
-	Menu dropdown
+	Menu dropdown, contém as escalas
 */
 .dropdown {
+	/* Deixa a margem de ambos os lados com a mesma largura, posicionando o menu no centro */
 	margin: auto;
+	/* Espaçamento entre o menu e o botão de unidade */
 	padding-top: 18px;
+	/* Remove ele do sistema de cordenadas da div pai, que é o respectivo unit-btn */
 	position: absolute;
-	align-items: center;
+	/* O menu dropdown não é normalmente visível */
 	display: none;
 	width: 20%;
 }
 
+/* As div's internas do menu dropdown são os botões de escala */
 .dropdown div {
+	/* Posiciona cada um em uma linha */
 	display: block;
+	/* Cor de fundo e da fonte */
     background-color: #ccc;
     color: black;
+    /* Medidas do box model da div */
     width: 150px;
     border-radius: 8px;
     margin: auto;
     margin-top: 2px;
     padding: 4px;
 }
-.dropdown *:hover {
+/* Quando o mouse estiver sobre os botões de escala */
+.dropdown div:hover {
 	background-color: #888;
 }
 
+/* 
+	Quando o mouse estiver sobre o botão de unidade,
+	os efeitos descritos ocorerão no menu dropdown
+	filho do botão de unidade selecionada
+*/
 .unit-btn:hover .dropdown {
+	/* Mostre o menu */
     display: block;
 }
 
@@ -62,17 +86,22 @@ body {
 	O display do valor medido
 */
 .measure {
-	font-family: arial;
+	/* Propriedades do texto */
 	font-size: 48px;
-	padding: 16px;
-	border: solid #aaa 10px;
-	border-radius: 10px;
-	background-color: black;
-	color: #0f0;
 	text-align: right;
-	position: absolute;
+	color: #0f0;
+
+	background-color: black;
+
+	/* Propriedades do box model */
+	padding: 16px;
+	border: solid #aaa 10px;/* Renderize uma borda sólida, cinza e com 10px de largura */
+	border-radius: 10px;
+	margin-top: 250px;		/* Margem entre o visor e o menu dropdown */
 	min-width: 25%;
-	left: 50%;
-	transform: translate(-50%, 0%);
-	margin-top: 250px;
+	
+	/* Posiona o visor no centro da tela, horizontalmente */
+	position: absolute;
+	left: 50%;						/* O lado esquerdo vai para o centro da tela... */
+	transform: translate(-50%, 0%); /* ... então o visor é movido para uma distância a direita igual a metade de sua largura */
 }
