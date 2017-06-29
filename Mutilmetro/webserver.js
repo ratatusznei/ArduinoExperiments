@@ -1,5 +1,5 @@
 /*
-	Creates a simple web server that provides to the client the requested file
+	Cria um servidor web simples que envia os arquivos requisitados
 */
 
 function createWebServer () {

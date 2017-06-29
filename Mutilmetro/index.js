@@ -14,7 +14,7 @@ server.listen(port, () => {
 
 // Armazena o inteval, criado por setInterval, que faz medições a cada delta t milisegundos
 let measureInterval;
-const measureDeltaTime = 100
+const measureDeltaTime = 500;
 // Objeto que armazena os valores medidos
 let measured = {
 	v: 0,
@@ -39,17 +39,17 @@ arduino.on('ready', () => {
 	*/
 	let voltimeter = five.Sensor({
 		pin: vReadPin,
-		freq: 100
+		freq: 200
 	});
 
 	let ohmmeter = five.Sensor({
 		pin: rReadPin,
-		freq: 100
+		freq: 200
 	});	
 
 	let ampmeter = five.Sensor({
 		pin: iReadPin,
-		freq: 100
+		freq: 200
 	});
 
 	// Quando valor medido em qualquer um mudar: Atualize o objeto measured
@@ -85,6 +85,7 @@ io.on('connection', function(socket) {
 		const unit = data[0];	// Recebido do usuário, v | i | r
 		const scale = data[1];	// Recebido do usuário, 0 | 1 | 2 | 3
 		let real;				// O valor real medido, sem contar a atenuação devido as diferentes escalas
+		let fractionDigits = 5; // Numero de casas decimais do resultado
 
 		//Limpe o interval, se existir
 		clearInterval(measureInterval);
@@ -97,7 +98,7 @@ io.on('connection', function(socket) {
 					scale == '2'? 100:
 					scale == '3'? 1000: -1;
 
-				real = measured.v * multiple + ' V';
+				real = (measured.v * multiple - (measured.v > 0.5? 0.1: 0)).toFixed(fractionDigits) + ' V';
 			}
 			else if (unit === 'r') {
 				let multiple =  scale == '0'? 100:
@@ -105,15 +106,15 @@ io.on('connection', function(socket) {
 					scale == '2'? 10E3:
 					scale == '3'? 100E3: -1;
 
-				real = (measured.r)/((5 - measured.r)*multiple) + ' Ω';
+				real = (measured.r * multiple/(5 - measured.r)).toFixed(fractionDigits) + ' Ω';//(measured.r)/((5 + measured.r)*multiple) + ' Ω';
 			}
 			else if (unit === 'i') {
-				let multiple = scale == '0'? 100:
-					scale == '1'? 10:
-					scale == '2'? 1:
-					scale == '3'? 0.1: -1;
+				let multiple = scale == '0'? 10:
+					scale == '1'? 100:
+					scale == '2'? 1E3:
+					scale == '3'? 10E3: -1;
 
-				real = measured.r * multiple +' A';
+				real = (measured.i / (multiple * 1.09)).toFixed(fractionDigits) +' A';
 			}
 
 			//Envia o valor real para todos

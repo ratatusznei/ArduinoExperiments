@@ -88,6 +88,7 @@ body {
 .measure {
 	/* Propriedades do texto */
 	font-size: 48px;
+	font-family: monospace;
 	text-align: right;
 	color: #0f0;
 
@@ -98,7 +99,7 @@ body {
 	border: solid #aaa 10px;/* Renderize uma borda sólida, cinza e com 10px de largura */
 	border-radius: 10px;
 	margin-top: 250px;		/* Margem entre o visor e o menu dropdown */
-	min-width: 25%;
+	min-width: 30%;
 	
 	/* Posiona o visor no centro da tela, horizontalmente */
 	position: absolute;
