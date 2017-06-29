@@ -1,6 +1,7 @@
 /*
 	Cria um servidor web simples que envia os arquivos requisitados
 */
+'use strict';
 
 function createWebServer () {
 	/** Importando módulos **/

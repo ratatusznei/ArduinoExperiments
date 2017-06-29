@@ -1,3 +1,10 @@
+/*
+	Arquivo principal
+
+	Programa o arduino para ler as entradas analógicas e
+	recebe os dados do arduino, para então enviar eles para o socket
+*/
+
 'use strict';
 
 /* Importando módulos */
@@ -35,7 +42,7 @@ arduino.on('ready', () => {
 
 	/* 
 		Objetos sensores analógicas, cada um no respectivo pino
-		e com uma taxa de atualização de 100ms
+		e com uma taxa de atualização de 200ms
 	*/
 	let voltimeter = five.Sensor({
 		pin: vReadPin,
