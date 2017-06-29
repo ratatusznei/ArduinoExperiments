@@ -113,7 +113,7 @@ io.on('connection', function(socket) {
 					scale == '2'? 10E3:
 					scale == '3'? 100E3: -1;
 
-				real = (measured.r * multiple/(5 - measured.r)).toFixed(fractionDigits) + ' Ω';//(measured.r)/((5 + measured.r)*multiple) + ' Ω';
+				real = (measured.r * multiple/(5 - measured.r)).toFixed(fractionDigits) + ' Ω';
 			}
 			else if (unit === 'i') {
 				let multiple = scale == '0'? 10:
@@ -121,7 +121,7 @@ io.on('connection', function(socket) {
 					scale == '2'? 1E3:
 					scale == '3'? 10E3: -1;
 
-				real = (measured.i / (multiple * 1.09)).toFixed(fractionDigits) +' A';
+				real = (measured.i / (multiple)).toFixed(fractionDigits) +' A';
 			}
 
 			//Envia o valor real para todos
