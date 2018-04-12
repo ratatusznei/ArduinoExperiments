@@ -1,0 +1,16 @@
+// Contém informações sobre o projeto
+{
+  "name": "mutilmetro",
+  "version": "1.0.0",
+  "description": "Projeto para a disciplina de microcontroladores 1, UTFPR 2017/1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fernando Henrique Ratusznei Caetano",
+  "license": "ISC",
+  "dependencies": {
+    "johnny-five": "^0.11.1",
+    "socket.io": "^2.0.3"
+  }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mutilmetro</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="./style.css">
+	</head>
+	<body>
+		<div class="menu">
+			<div class="unit-btn v-btn">
+				Tensão
+				<div class="dropdown">
+					<div class="scale-btn v0">500 mV</div>
+					<div class="scale-btn v1">5 V</div>
+					<div class="scale-btn v2">50 V</div>
+					<div class="scale-btn v3">500 V</div>
+				</div>
+			</div>
+
+			<div class="unit-btn r-btn">
+				Resistência
+				<div class="dropdown">
+					<div class="scale-btn r0">100 &Omega;</div>
+					<div class="scale-btn r1">1 k&Omega;</div>
+					<div class="scale-btn r2">10 k&Omega;</div>
+					<div class="scale-btn r3">100 k&Omega;</div>
+				</div>
+			</div>
+
+			<div class="unit-btn i-btn">
+				Corrente
+				<div class="dropdown">
+					<div class="scale-btn i0">500 mA</div>
+					<div class="scale-btn i1">50 mA</div>
+					<div class="scale-btn i2">5 mA</div>
+					<div class="scale-btn i3">500 uA</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="measure">Selecione</div>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="./main.js"></script>
+	</body>
+</html>
